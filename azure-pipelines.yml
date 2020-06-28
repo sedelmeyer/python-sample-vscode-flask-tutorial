@@ -18,13 +18,13 @@ strategy:
       vm.image: 'ubuntu-latest'
       python.version: '3.8'
     win_py36:
-      vm.image: 'vs2016-win2016'
+      vm.image: 'vs2017-win2016'
       python.version: '3.6'
     win_py37:
-      vm.image: 'vs2016-win2016'
+      vm.image: 'vs2017-win2016'
       python.version: '3.7'
     win_py38:
-      vm.image: 'vs2016-win2016'
+      vm.image: 'vs2017-win2016'
       python.version: '3.8'
 
 
