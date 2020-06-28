@@ -6,24 +6,36 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
 strategy:
   matrix:
-    Python27:
-      python.version: '2.7'
-    Python35:
-      python.version: '3.5'
-    Python36:
+    linux_py36:
+      vm.image: 'ubuntu-latest'
       python.version: '3.6'
-    Python37:
+    linux_py37:
+      vm.image: 'ubuntu-latest'
       python.version: '3.7'
+    linux_py38:
+      vm.image: 'ubuntu-latest'
+      python.version: '3.8'
+    win_py36:
+      vm.image: 'vs2016-win2016'
+      python.version: '3.6'
+    win_py37:
+      vm.image: 'vs2016-win2016'
+      python.version: '3.7'
+    win_py38:
+      vm.image: 'vs2016-win2016'
+      python.version: '3.8'
+
+
+pool:
+  vmImage: $(imageName)
 
 steps:
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '$(python.version)'
-  displayName: 'Use Python $(python.version)'
+  displayName: 'Use $(vm.image) Python $(python.version)'
 
 - script: |
     python -m pip install --upgrade pip
